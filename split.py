@@ -20,7 +20,7 @@ def splitFile(inputPath,outputPath):
 	for i, chapter in enumerate(chapters):
 		startSec = str(chapter[0]/1000)
 		chapterLen = str((chapter[1]-chapter[0])/1000)
-		chapterNum = str(i).zfill(3)
+		chapterNum = str(i+1).zfill(3)
 		chapterOutputPath = outputPath + "/" + inputPath.split("/")[-1][:-4] + " - " + chapterNum + ".aac"
 		print("Writing " + chapterOutputPath + " ...")
 		runCmd('ffmpeg -ss ' + startSec + ' -i ' + q(inputPath) + " -t " + chapterLen + " -acodec copy " + q(chapterOutputPath) )
